@@ -12,6 +12,8 @@
     "react-router-dom": "6",
     "react-scripts": "5.0.1",
     "sass": "^1.54.5",
+    "styled-components": "^5.3.5",
+    "use-react-router-breadcrumbs": "^3.2.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
