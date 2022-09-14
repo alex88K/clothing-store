@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
 import { Outlet, useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { ReactComponent as Logo } from "../../assets/logo.svg";
 
 import CartIcon from "../../components/cart-icon/cart-icon.component";
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component";
 
-import { userContext } from "../../contexts/user.context";
 import { CartContext } from "../../contexts/cart.context";
+import { selectCurrentUser } from "../../store/user/user.selector";
 
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 
@@ -20,7 +21,8 @@ import {
 } from "./navigation.styles.jsx";
 
 const Navigation = () => {
-  const { currentUser } = useContext(userContext);
+  const currentUser = useSelector(selectCurrentUser);
+
   const { isCartOpen } = useContext(CartContext);
   const location = useLocation();
 

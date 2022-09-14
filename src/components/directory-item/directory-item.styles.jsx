@@ -35,14 +35,13 @@ export const Body = styled.div`
 `;
 
 export const DirectoryItemContainer = styled.div`
-  min-width: 30%;
-  height: 240px;
+  grid-column: span 2;
+  min-height: 200px;
   flex: 1 1 auto;
   display: flex;
   align-items: center;
   justify-content: center;
   border: 1px solid black;
-  margin: 0 7.5px 15px;
   overflow: hidden;
 
   &:hover {
@@ -58,11 +57,18 @@ export const DirectoryItemContainer = styled.div`
     }
   }
 
-  &:first-child {
-    margin-right: 7.5px;
+  &:nth-child(4),
+  &:nth-child(5) {
+    grid-row-start: 2;
   }
 
-  &:last-child {
-    margin-left: 7.5px;
+  &:nth-child(4) {
+    grid-column-start: 1;
+    grid-column-end: 4;
+  }
+
+  &:nth-child(5) {
+    grid-column-start: 4;
+    grid-column-end: 7;
   }
 `;
