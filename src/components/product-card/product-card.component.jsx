@@ -1,8 +1,8 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { selectCartItems } from "../../store/cart/cart.selector";
-import { setCartItems } from "../../store/cart/cart.action";
+import { addItemToCart } from "../../store/cart/cart.action";
 import {
   addCartItem,
   updateCartItemsReducer,
@@ -16,9 +16,9 @@ const ProductCard = ({ product }) => {
   const cartItems = useSelector(selectCartItems);
   const dispatch = useDispatch();
 
-  const addItemToCart = (productToAdd) => {
+  const addProductToCart = (productToAdd) => {
     const newCartItems = addCartItem(cartItems, productToAdd);
-    dispatch(setCartItems(updateCartItemsReducer(newCartItems)));
+    dispatch(addItemToCart(cartItems, product));
   };
 
   return (
@@ -30,7 +30,7 @@ const ProductCard = ({ product }) => {
       </div>
       <Button
         buttonType={BUTTON_TYPE_CLASSES.inverted}
-        onClick={() => addItemToCart(product)}
+        onClick={() => addProductToCart(product)}
       >
         Add to card
       </Button>
