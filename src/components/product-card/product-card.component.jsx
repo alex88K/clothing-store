@@ -3,10 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { selectCartItems } from "../../store/cart/cart.selector";
 import { addItemToCart } from "../../store/cart/cart.action";
-import {
-  addCartItem,
-  updateCartItemsReducer,
-} from "../../store/cart/cart.utils";
 
 import { ProductCardContainer } from "./product-card.styles";
 import Button, { BUTTON_TYPE_CLASSES } from "../button/button.component";
@@ -17,8 +13,7 @@ const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
 
   const addProductToCart = (productToAdd) => {
-    const newCartItems = addCartItem(cartItems, productToAdd);
-    dispatch(addItemToCart(cartItems, product));
+    dispatch(addItemToCart(cartItems, productToAdd));
   };
 
   return (
